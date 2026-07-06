@@ -29,11 +29,11 @@ app = Flask(__name__)
 # ---------------------------------------------------------------------------
 
 SITE = {
-    "name": "Your Name",
-    "role": "Digital Humanities Scholar",
+    "name": "Divya Malhotra",
+    "role": "Digital Humanities Researcher and Literary Scholar",
     "tagline": "Reading texts at scale — corpora, code, and cultural history.",
-    "institution": "Department of English, Your University",
-    "email": "you@university.edu",
+    "institution": "Department of English, University of Delhi",
+    "email": "divya.englishstudies@gmail.com", "divyamalhhotra@english.du.ac.in"
 
     "about": (
         "I work at the intersection of literary history and computational "
@@ -87,10 +87,10 @@ SITE = {
 
     # Update the URLs to your own accounts. Leave a field as "" to hide it.
     "social": {
-        "substack": "https://yourname.substack.com",
-        "youtube": "https://youtube.com/@yourname",
-        "linkedin": "https://linkedin.com/in/yourname",
-        "bluesky": "https://bsky.app/profile/yourname.bsky.social",
+        "substack": "https://substack.com/@ethicsandmorals",
+        "youtube": "www.youtube.com/@Philosophying",
+        "linkedin": "www.linkedin.com/in/divya-malhotra-9b31a8419",
+        "bluesky": "https://bsky.app/profile/divyamalhotra.bsky.social",
     },
 }
 
