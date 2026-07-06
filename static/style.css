@@ -1,0 +1,286 @@
+/* ---------------------------------------------------------------------
+   Design tokens
+--------------------------------------------------------------------- */
+:root {
+  --ink: #1B1F29;
+  --surface: #242A37;
+  --paper: #F2EEE2;
+  --paper-dim: #C9C4B3;
+  --gold: #C9A24B;
+  --rust: #B0523A;
+  --slate: #8890A0;
+  --hairline: rgba(242, 238, 226, 0.12);
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --wrap: 780px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--paper);
+}
+
+/* ---------------------------------------------------------------------
+   Ambient TEI-tag background (signature motif)
+--------------------------------------------------------------------- */
+.tagcloud {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  color: var(--paper);
+  opacity: 0.045;
+  font-size: 15px;
+}
+.tagcloud span {
+  position: absolute;
+  white-space: nowrap;
+}
+.tagcloud span:nth-child(1) { top: 8%;  left: 6%; }
+.tagcloud span:nth-child(2) { top: 22%; left: 72%; }
+.tagcloud span:nth-child(3) { top: 40%; left: 12%; font-size: 22px; }
+.tagcloud span:nth-child(4) { top: 58%; left: 80%; }
+.tagcloud span:nth-child(5) { top: 72%; left: 20%; }
+.tagcloud span:nth-child(6) { top: 88%; left: 65%; }
+
+main, header, footer { position: relative; z-index: 1; }
+
+/* ---------------------------------------------------------------------
+   Mono "markup tag" label — the recurring signature element
+--------------------------------------------------------------------- */
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--rust);
+  background: rgba(176, 82, 58, 0.12);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.mono-tag.inline {
+  margin-right: 6px;
+  color: var(--gold);
+  background: rgba(201, 162, 75, 0.12);
+}
+
+/* ---------------------------------------------------------------------
+   Header / nav
+--------------------------------------------------------------------- */
+.site-header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header nav {
+  display: flex;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+.site-header nav a { color: var(--paper-dim); }
+.site-header nav a:hover { color: var(--gold); }
+
+/* ---------------------------------------------------------------------
+   Hero
+--------------------------------------------------------------------- */
+.hero {
+  padding: 96px 28px 72px;
+  text-align: center;
+}
+.hero .eyebrow {
+  display: inline-block;
+}
+.hero .eyebrow.close-tag {
+  margin-top: 4px;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(40px, 7vw, 68px);
+  line-height: 1.05;
+  margin: 10px 0 4px;
+}
+.hero .role {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--paper-dim);
+  margin: 0 0 14px;
+}
+.hero .tagline {
+  font-size: 20px;
+  color: var(--paper-dim);
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+.cta {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+.cta:hover {
+  background: rgba(201, 162, 75, 0.12);
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------
+   Section shared spacing
+--------------------------------------------------------------------- */
+section.about,
+section.projects,
+section.connect {
+  padding: 64px 28px;
+  border-top: 1px solid var(--hairline);
+}
+section h2 { margin-bottom: 24px; }
+
+.about p { color: var(--paper-dim); max-width: 620px; }
+.about p:first-of-type { color: var(--paper); }
+.contact-line { display: flex; align-items: center; margin-top: 20px; }
+
+/* ---------------------------------------------------------------------
+   Projects catalog
+--------------------------------------------------------------------- */
+.catalog {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.entry {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-top: 1px solid var(--hairline);
+}
+.catalog .entry:first-child { border-top: none; }
+.entry-index {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--rust);
+  padding-top: 4px;
+}
+.entry-body h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.entry-meta {
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.entry-desc {
+  color: var(--paper-dim);
+  margin: 0;
+  max-width: 600px;
+}
+
+/* ---------------------------------------------------------------------
+   Connect / social colophon
+--------------------------------------------------------------------- */
+.connect-intro {
+  color: var(--paper-dim);
+  margin: -8px 0 28px;
+}
+.social-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.social-list li a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  color: var(--paper);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.social-list li a:hover {
+  border-color: var(--gold);
+  background: var(--surface);
+  text-decoration: none;
+}
+.social-list .icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  color: var(--gold);
+}
+.social-list .icon svg { width: 100%; height: 100%; display: block; }
+.social-list .label { font-size: 15px; }
+.social-list .label .mono-tag { display: block; margin-bottom: 3px; }
+
+/* ---------------------------------------------------------------------
+   Footer
+--------------------------------------------------------------------- */
+.site-footer {
+  padding: 28px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--slate);
+}
+
+/* ---------------------------------------------------------------------
+   Responsive
+--------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { padding: 64px 20px 48px; }
+  .entry { grid-template-columns: 40px 1fr; }
+  .social-list { grid-template-columns: 1fr; }
+  .site-header nav { gap: 16px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
